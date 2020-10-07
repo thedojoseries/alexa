@@ -21,7 +21,7 @@ exports.DeployIntentHandler = {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
         && handlerInput.requestEnvelope.request.intent.name === 'DeployIntent';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
         const deployEnv = handlerInput.requestEnvelope.request.intent.slots.environment.value
         const fullUrl = buildBaseUrl('deploy', deployEnv)
         let speechText
