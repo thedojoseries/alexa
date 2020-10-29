@@ -1,0 +1,24 @@
+{
+  "name": "alexa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thedojoseries/alexa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thedojoseries/alexa/issues"
+  },
+  "homepage": "https://github.com/thedojoseries/alexa#readme",
+  "dependencies": {
+    "ask-sdk": "^2.9.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.6"
+  }
+}
