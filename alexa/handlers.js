@@ -21,17 +21,17 @@ exports.DeployIntent = {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
                handlerInput.requestEnvelope.request.intent.name === 'DeployIntent'
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
         const deployEnv = handlerInput.requestEnvelope.request.intent.slots.environment.value
         const fullUrl = buildFullUrl('deploy', deployEnv)
         let speechText
 
-        const response = triggerJenkins(fullUrl)
+        const response = await triggerJenkins(fullUrl)
 
         if (response === 201) {
             speechText = `I was able to successfully trigger Jenkins to deploy the website to ${deployEnv}. I hope the build succeeds. It would be very funny if it failed. Haha.`
         } else {
-            speechText = 'Unfortunately there was an error when triggering Jenkins. Go to the Jenkins console to check out what happened'
+            speechText = 'Unfortunately there was an error when triggering Jenkins.'
         }
 
         return handlerInput.responseBuilder
